@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.btl.R;
 import com.example.btl.admin.manager.UserAdminManager;
 import com.example.btl.model.User;
+import com.example.btl.nhanvien.activity.NhanVienActivity;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -72,15 +73,18 @@ public class LoginActivity extends AppCompatActivity {
             return;
         }
 
-        if (!"admin".equalsIgnoreCase(user.getRole())) {
-            Toast.makeText(this, "Tài khoản này không thuộc quyền admin", Toast.LENGTH_SHORT).show();
-            return;
-        }
-
         Toast.makeText(this, "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
 
-        Intent intent = new Intent(LoginActivity.this, AdminHomeActivity.class);
-        startActivity(intent);
-        finish();
+        if ("admin".equalsIgnoreCase(user.getRole())) {
+            Intent intent = new Intent(LoginActivity.this, AdminHomeActivity.class);
+            startActivity(intent);
+            finish();
+        } else if ("nhanvien".equalsIgnoreCase(user.getRole())) {
+            Intent intent = new Intent(LoginActivity.this, NhanVienActivity.class);
+            startActivity(intent);
+            finish();
+        } else {
+            Toast.makeText(this, "Tài khoản không có quyền truy cập hệ thống này", Toast.LENGTH_SHORT).show();
+        }
     }
 }
