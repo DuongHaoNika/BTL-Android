@@ -82,6 +82,29 @@
             android:name=".quanly.VoucherEditActivity"
             android:exported="false" />
 
+        <!-- Các màn hình dành cho Khách hàng (Customer) -->
+        <activity
+            android:name=".customer.activity.CustomerHomeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".customer.activity.BookingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".customer.activity.BookingDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".customer.activity.MenuActivity"
+            android:exported="false" />
+        <activity
+            android:name=".customer.activity.BookingActivity$CartActivity"
+            android:exported="false" />
+        <activity
+            android:name=".customer.activity.PaymentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".customer.activity.ProfileActivity"
+            android:exported="false" />
+
     </application>
 
 </manifest>

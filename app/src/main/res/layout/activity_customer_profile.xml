@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:gravity="center_horizontal">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="THÔNG TIN CÁ NHÂN"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_marginBottom="40dp"/>
+
+    <!-- Avatar giả lập -->
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@android:drawable/ic_menu_myplaces"
+        android:background="@android:drawable/screen_background_light_transparent"
+        android:padding="10dp"
+        android:layout_marginBottom="32dp"
+        app:tint="#2196F3" />
+
+    <!-- Tên khách hàng -->
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Họ và Tên"
+        app:startIconDrawable="@android:drawable/ic_menu_edit"
+        android:layout_marginBottom="16dp">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edtProfileName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:enabled="false"
+            android:text="Nguyễn Văn A" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Số điện thoại -->
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Số điện thoại"
+        app:startIconDrawable="@android:drawable/ic_menu_call"
+        android:layout_marginBottom="16dp">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edtProfilePhone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:enabled="false"
+            android:text="0987.654.321" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Địa chỉ -->
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Địa chỉ"
+        app:startIconDrawable="@android:drawable/ic_menu_directions"
+        android:layout_marginBottom="32dp">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edtProfileAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:enabled="false"
+            android:text="123 Đường ABC, Quận X, Hà Nội" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/btnBackFromProfile"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:text="QUAY LẠI"
+        app:cornerRadius="8dp" />
+
+</LinearLayout>

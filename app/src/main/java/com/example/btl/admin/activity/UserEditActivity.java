@@ -12,6 +12,9 @@ import com.example.btl.admin.manager.LogManager;
 import com.example.btl.admin.manager.UserAdminManager;
 import com.example.btl.model.User;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class UserEditActivity extends AppCompatActivity {
 
     private EditText edtUsername, edtPassword, edtRole;
@@ -53,36 +56,45 @@ public class UserEditActivity extends AppCompatActivity {
         mode = getIntent().getStringExtra("mode");
 
         if ("edit".equals(mode)) {
-            // Lấy user cuối cùng để demo edit nếu không có ID cụ thể
-            if (!userAdminManager.getAllUsers().isEmpty()) {
+            // Ưu tiên lấy theo ID truyền vào, nếu không có mới lấy user cuối cùng
+            int userId = getIntent().getIntExtra("userId", -1);
+            if (userId != -1) {
+                currentUser = userAdminManager.getUserById(userId);
+            } else if (!userAdminManager.getAllUsers().isEmpty()) {
+                // Giữ lại logic cũ của bạn để không làm hỏng flow hiện tại
                 currentUser = userAdminManager.getAllUsers().get(userAdminManager.getAllUsers().size() - 1);
+            }
 
+            if (currentUser != null) {
                 edtUsername.setText(currentUser.getUsername());
                 edtPassword.setText(currentUser.getPassword());
                 edtRole.setText(currentUser.getRole());
+                // Không cho sửa username nếu đang ở chế độ edit (thông lệ quản lý)
+                edtUsername.setEnabled(false);
             }
         }
     }
 
     private void setupActions() {
-        btnBack.setOnClickListener(v -> onBackPressed());
+        btnBack.setOnClickListener(v -> finish());
         btnSaveUser.setOnClickListener(v -> handleSave());
         btnDeleteUser.setOnClickListener(v -> handleDelete());
-    }
-
-    @Override
-    public boolean onSupportNavigateUp() {
-        onBackPressed();
-        return true;
     }
 
     private void handleSave() {
         String username = edtUsername.getText().toString().trim();
         String password = edtPassword.getText().toString().trim();
-        String role = edtRole.getText().toString().trim();
+        String role = edtRole.getText().toString().trim().toLowerCase(); // Chuyển về chữ thường để đồng bộ
 
         if (username.isEmpty() || password.isEmpty() || role.isEmpty()) {
             Toast.makeText(this, "Vui lòng nhập đầy đủ thông tin", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        // Kiểm tra role hợp lệ (Đảm bảo Admin nhập đúng role để LoginActivity bắt được)
+        List<String> validRoles = Arrays.asList("admin", "customer", "nhanvien", "quanly");
+        if (!validRoles.contains(role)) {
+            Toast.makeText(this, "Role không hợp lệ (admin, customer, nhanvien, quanly)", Toast.LENGTH_LONG).show();
             return;
         }
 
@@ -91,7 +103,7 @@ public class UserEditActivity extends AppCompatActivity {
                     (int) (System.currentTimeMillis() % Integer.MAX_VALUE),
                     username,
                     password,
-                    username,
+                    username, // Hiển thị tên mặc định là username
                     "",
                     role
             );
@@ -99,8 +111,8 @@ public class UserEditActivity extends AppCompatActivity {
             boolean success = userAdminManager.addUser(newUser);
 
             if (success) {
-                logManager.addLog("Thêm user: " + username);
-                Toast.makeText(this, "Thêm user thành công", Toast.LENGTH_SHORT).show();
+                logManager.addLog("Thêm user: " + username + " với quyền " + role);
+                Toast.makeText(this, "Thêm " + role + " thành công", Toast.LENGTH_SHORT).show();
                 finish();
             } else {
                 Toast.makeText(this, "Username đã tồn tại", Toast.LENGTH_SHORT).show();
@@ -108,7 +120,6 @@ public class UserEditActivity extends AppCompatActivity {
 
         } else if ("edit".equals(mode)) {
             if (currentUser != null) {
-                currentUser.setUsername(username);
                 currentUser.setPassword(password);
                 currentUser.setRole(role);
 

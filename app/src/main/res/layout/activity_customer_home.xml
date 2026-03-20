@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:gravity="center">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="XIN CHÀO QUÝ KHÁCH"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_marginBottom="32dp"/>
+
+    <androidx.gridlayout.widget.GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:columnCount="2"
+        app:rowCount="2">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnBooking"
+            style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+            android:layout_width="0dp"
+            android:layout_height="150dp"
+            app:layout_columnWeight="1"
+            android:layout_margin="8dp"
+            android:text="ĐẶT BÀN"
+            android:backgroundTint="#E3F2FD"
+            app:icon="@android:drawable/ic_menu_today"
+            app:iconGravity="top"
+            app:iconSize="40dp"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnMenu"
+            style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+            android:layout_width="0dp"
+            android:layout_height="150dp"
+            app:layout_columnWeight="1"
+            android:layout_margin="8dp"
+            android:text="GỌI MÓN"
+            android:backgroundTint="#FFF3E0"
+            app:icon="@android:drawable/ic_menu_mapmode"
+            app:iconGravity="top"
+            app:iconSize="40dp"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnProfile"
+            style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+            android:layout_width="0dp"
+            android:layout_height="150dp"
+            app:layout_columnWeight="1"
+            android:layout_margin="8dp"
+            android:text="CÁ NHÂN"
+            android:backgroundTint="#F1F8E9"
+            app:icon="@android:drawable/ic_menu_myplaces"
+            app:iconGravity="top"
+            app:iconSize="40dp"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnLogout"
+            style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+            android:layout_width="0dp"
+            android:layout_height="150dp"
+            app:layout_columnWeight="1"
+            android:layout_margin="8dp"
+            android:text="ĐĂNG XUẤT"
+            android:backgroundTint="#FFEBEE"
+            android:textColor="#D32F2F"
+            app:icon="@android:drawable/ic_lock_power_off"
+            app:iconGravity="top"
+            app:iconTint="#D32F2F"
+            app:iconSize="40dp"/>
+    </androidx.gridlayout.widget.GridLayout>
+</LinearLayout>
