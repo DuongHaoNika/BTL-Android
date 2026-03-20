@@ -47,6 +47,15 @@ public class UserAdminManager {
         return null;
     }
 
+    public User getUserById(int id) {
+        for (User user : userList) {
+            if (user.getId() == id) {
+                return user;
+            }
+        }
+        return null;
+    }
+
     public boolean addUser(User user) {
         if (findByUsername(user.getUsername()) != null) {
             return false;
