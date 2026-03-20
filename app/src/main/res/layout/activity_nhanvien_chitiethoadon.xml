@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/gray_bg"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarCT"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/blue_primary"
+        app:title="HÓA ĐƠN #001"
+        app:titleTextColor="@color/white"
+        app:titleCentered="true"
+        app:navigationIcon="?attr/homeAsUpIndicator"
+        app:navigationIconTint="@color/white"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <TextView
+            android:id="@+id/txtBanDetail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Bàn: 01"
+            android:textColor="@color/black"
+            android:textSize="32sp"
+            android:layout_marginBottom="16dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_order_box"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Món ăn"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#DDDDDD"
+                android:layout_marginVertical="8dp"/>
+
+            <TextView
+                android:id="@+id/txtItems"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Phở bò x2\nCơm rang x1\nCoca x1"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:lineSpacingExtra="8dp"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#DDDDDD"
+                android:layout_marginVertical="8dp"/>
+
+            <TextView
+                android:id="@+id/txtTongTien"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tổng tiền:  150.000đ"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnXacNhanDon"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="24dp"
+        android:padding="12dp"
+        android:text="XÁC NHẬN ĐƠN"
+        android:textSize="18sp"
+        app:backgroundTint="@color/green_trong"
+        app:cornerRadius="8dp" />
+
+</LinearLayout>
