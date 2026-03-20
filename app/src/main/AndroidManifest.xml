@@ -12,22 +12,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BTL">
 
+        <!-- Admin Activities -->
         <activity
             android:name=".admin.activity.UserEditActivity"
             android:exported="false" />
-
         <activity
             android:name=".admin.activity.UserManagementActivity"
             android:exported="false" />
-
         <activity
             android:name=".admin.activity.LogActivity"
             android:exported="false" />
-
         <activity
             android:name=".admin.activity.AdminHomeActivity"
             android:exported="false" />
-
         <activity
             android:name=".admin.activity.LoginActivity"
             android:exported="true">
@@ -36,6 +33,38 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- Quan Ly Activities -->
+        <activity
+            android:name=".quanly.QuanLyHomeActivity"
+            android:exported="true" />
+        <activity
+            android:name=".quanly.EmployeeListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".quanly.EmployeeEditActivity"
+            android:exported="false" />
+        <activity
+            android:name=".quanly.FoodListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".quanly.FoodEditActivity"
+            android:exported="false" />
+        <activity
+            android:name=".quanly.TableListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".quanly.TableEditActivity"
+            android:exported="false" />
+        <activity
+            android:name=".quanly.InvoiceListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".quanly.VoucherListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".quanly.VoucherEditActivity"
+            android:exported="false" />
 
     </application>
 
