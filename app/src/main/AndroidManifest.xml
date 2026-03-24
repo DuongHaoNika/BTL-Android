@@ -41,6 +41,8 @@
         <activity
             android:name=".admin.activity.AdminHomeActivity"
             android:exported="false" />
+        
+        <!-- LoginActivity được đặt làm màn hình khởi chạy -->
         <activity
             android:name=".admin.activity.LoginActivity"
             android:exported="true">
@@ -53,7 +55,7 @@
         <!-- Quan Ly Activities -->
         <activity
             android:name=".quanly.QuanLyHomeActivity"
-            android:exported="true" />
+            android:exported="false" />
         <activity
             android:name=".quanly.EmployeeListActivity"
             android:exported="false" />
@@ -96,7 +98,7 @@
             android:name=".customer.activity.MenuActivity"
             android:exported="false" />
         <activity
-            android:name=".customer.activity.BookingActivity$CartActivity"
+            android:name=".customer.activity.CartActivity"
             android:exported="false" />
         <activity
             android:name=".customer.activity.PaymentActivity"
