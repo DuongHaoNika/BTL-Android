@@ -28,6 +28,22 @@ public class CartManager {
         }
         pendingItems.add(new CartItem(food, 1, false));
     }
+    // Thêm vào trong CartManager.java, sua so luong mon an goi
+    public void decreaseQuantity(Food food) {
+        for (int i = 0; i < pendingItems.size(); i++) {
+            CartItem item = pendingItems.get(i);
+            if (item.getFood().getId() == food.getId()) {
+                if (item.getQuantity() > 1) {
+                    // Nếu > 1 thì giảm số lượng
+                    item.setQuantity(item.getQuantity() - 1);
+                } else {
+                    // Nếu bằng 1 thì xóa khỏi danh sách
+                    pendingItems.remove(i);
+                }
+                return;
+            }
+        }
+    }
 
     public void confirmOrder() {
         for (CartItem item : pendingItems) {

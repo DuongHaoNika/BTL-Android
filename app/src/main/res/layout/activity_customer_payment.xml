@@ -1,57 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:background="#FFFFFF">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="HÓA ĐƠN THANH TOÁN"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        android:layout_gravity="center"
-        android:layout_marginBottom="32dp"/>
-
-    <TextView
-        android:id="@+id/txtPaymentTable"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Bàn: A1"
-        android:textSize="16sp"/>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvPaymentSummary"
+    <!-- 1. Thanh tiêu đề có nút Back -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarPayment"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:layout_marginTop="16dp"/>
+        android:layout_height="?attr/actionBarSize"
+        android:background="#2196F3"
+        app:title="Thanh toán hóa đơn"
+        app:titleTextColor="@color/white"
+        app:navigationIcon="?attr/homeAsUpIndicator" />
 
-    <EditText
-        android:id="@+id/edtVoucher"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Nhập mã giảm giá (nếu có)"
-        android:layout_marginTop="16dp"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="20dp">
 
-    <TextView
-        android:id="@+id/txtTotalAmount"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Tổng: 0 VNĐ"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:textColor="#D32F2F"
-        android:gravity="end"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="24dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TÓM TẮT ĐƠN HÀNG"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:layout_marginBottom="16dp"/>
 
-    <Button
-        android:id="@+id/btnFinalPay"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:text="THANH TOÁN NGAY"
-        android:textSize="18sp"
-        android:backgroundTint="#4CAF50"/>
+        <!-- Hiển thị tổng tiền món ăn -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tổng tiền món ăn:"
+                android:textSize="16sp"/>
+            <TextView
+                android:id="@+id/txtTotalAmount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:text="0 VNĐ"
+                android:textStyle="bold"
+                android:textSize="16sp"/>
+        </RelativeLayout>
+
+        <!-- Nhập Voucher - Đã sửa lỗi icon ở đây -->
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Mã Voucher (nếu có)"
+            app:startIconDrawable="@android:drawable/ic_menu_edit"
+            android:layout_marginBottom="24dp">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtVoucher"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#DDDDDD"
+            android:layout_marginBottom="20dp"/>
+
+        <!-- Số tiền cuối cùng phải trả -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="40dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SỐ TIỀN THANH TOÁN:"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:textColor="@color/black"/>
+            <TextView
+                android:id="@+id/txtFinalAmount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:text="0 VNĐ"
+                android:textStyle="bold"
+                android:textSize="22sp"
+                android:textColor="#D32F2F"/>
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/btnFinalPay"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="XÁC NHẬN THANH TOÁN"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:backgroundTint="#4CAF50"
+            app:cornerRadius="8dp"/>
+
+    </LinearLayout>
 </LinearLayout>
