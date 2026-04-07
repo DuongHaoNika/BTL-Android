@@ -40,13 +40,14 @@
                 android:textSize="16sp" />
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/tvFoodStatus"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Còn hàng"
-            android:textColor="@android:color/holo_green_dark"
-            android:textSize="14sp" />
+        <!-- NÚT BẤM THÊM MÓN ĂN (+) -->
+        <ImageButton
+            android:id="@+id/btnAddFood"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@android:drawable/ic_input_add"
+            app:tint="?attr/colorPrimary" />
 
     </LinearLayout>
 </com.google.android.material.card.MaterialCardView>

@@ -59,7 +59,7 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ViewHolder> {
             super(itemView);
             tvFoodName = itemView.findViewById(R.id.tvFoodName);
             tvFoodPrice = itemView.findViewById(R.id.tvFoodPrice);
-            tvFoodStatus = itemView.findViewById(R.id.tvFoodStatus);
+            //tvFoodStatus = itemView.findViewById(R.id.tvFoodStatus);
         }
     }
 }

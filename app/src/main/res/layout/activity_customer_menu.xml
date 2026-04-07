@@ -4,13 +4,26 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <!-- Thanh tiêu đề có nút Back -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarMenu"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#2196F3"
+        app:title="Thực đơn món ăn"
+        app:titleTextColor="@color/white"
+        app:navigationIcon="@android:drawable/ic_menu_revert" />
+
+    <!-- Danh sách món ăn - Sau này Database sẽ đổ vào đây -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvMenuCustomer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_below="@id/toolbarMenu"
         android:padding="8dp"
         android:clipToPadding="false"/>
 
+    <!-- Nút xem giỏ hàng -->
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:id="@+id/btnGoToCart"
         android:layout_width="wrap_content"
@@ -19,8 +32,9 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="20dp"
         android:text="GIỎ HÀNG"
-        app:icon="@android:drawable/ic_menu_revert"
+        app:icon="@android:drawable/ic_menu_agenda"
         android:backgroundTint="#FF9800"
         android:textColor="@color/white"
         app:iconTint="@color/white"/>
+
 </RelativeLayout>

@@ -8,6 +8,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
 import com.example.btl.R;
 import com.example.btl.customer.manager.CartManager;
 
@@ -20,6 +22,18 @@ public class BookingActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customer_booking);
+
+
+        // --- CODE THÊM NÚT BACK ---
+        Toolbar toolbar = findViewById(R.id.toolbarBooking);
+        setSupportActionBar(toolbar);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
+        }
+        // Xử lý khi nhấn nút quay lại
+        toolbar.setNavigationOnClickListener(v -> finish());
+        // --------------------------
 
         txtSelectTime = findViewById(R.id.txtSelectTime);
 

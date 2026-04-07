@@ -1,148 +1,131 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:background="#F5F5F5">
 
-    <LinearLayout
+    <!-- 1. Thanh tiêu đề có nút Back -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarBookingDetail"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="20dp">
+        android:layout_height="?attr/actionBarSize"
+        android:background="#2196F3"
+        app:title="Thông tin đặt bàn"
+        app:titleTextColor="@color/white"
+        app:navigationIcon="?attr/homeAsUpIndicator" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="THÔNG TIN ĐẶT BÀN"
-            android:textSize="22sp"
-            android:textStyle="bold"
-            android:textColor="@color/black"
-            android:layout_gravity="center"
-            android:layout_marginBottom="24dp"/>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-        <!-- Card Thông tin Nhà hàng - Đã thêm ID để ánh xạ từ DB -->
-        <com.google.android.material.card.MaterialCardView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardCornerRadius="12dp"
-            app:cardElevation="4dp"
-            android:layout_marginBottom="20dp">
+            android:orientation="vertical"
+            android:padding="16dp">
 
-            <LinearLayout
+            <!-- Card Thông tin Nhà hàng -->
+            <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:padding="12dp">
-
-                <ImageView
-                    android:id="@+id/imgRestaurantLogo"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:src="@android:drawable/ic_menu_gallery"
-                    android:scaleType="centerCrop"/>
+                app:cardCornerRadius="8dp"
+                app:cardElevation="4dp"
+                android:layout_marginBottom="16dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_marginStart="16dp">
+                    android:orientation="horizontal"
+                    android:padding="12dp">
 
-                    <TextView
-                        android:id="@+id/txtRestaurantName"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Tên nhà hàng"
-                        android:textStyle="bold"
-                        android:textSize="18sp"
-                        android:textColor="@color/black"/>
+                    <ImageView
+                        android:id="@+id/imgRestaurantLogo"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:src="@android:drawable/ic_menu_gallery"
+                        android:scaleType="centerCrop"/>
 
-                    <TextView
-                        android:id="@+id/txtRestaurantAddress"
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Địa chỉ nhà hàng"
-                        android:textSize="14sp"
-                        android:alpha="0.7"/>
+                        android:orientation="vertical"
+                        android:layout_marginStart="12dp">
 
-                    <!-- Thêm TextView hiện thời gian đã chọn để khách dễ kiểm tra -->
-                    <TextView
-                        android:id="@+id/txtSelectedDateTime"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Thời gian: --/--/---- --:--"
-                        android:textSize="13sp"
-                        android:textColor="#2196F3"
-                        android:layout_marginTop="4dp"
-                        android:textStyle="italic"/>
+                        <TextView
+                            android:id="@+id/txtRestaurantName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Tên nhà hàng"
+                            android:textStyle="bold"
+                            android:textSize="17sp"
+                            android:textColor="@color/black"/>
+
+                        <TextView
+                            android:id="@+id/txtRestaurantAddress"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Địa chỉ nhà hàng"
+                            android:textSize="13sp"/>
+
+                        <TextView
+                            android:id="@+id/txtSelectedDateTime"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Thời gian: --"
+                            android:textColor="#2196F3"
+                            android:textSize="13sp"
+                            android:layout_marginTop="4dp"/>
+                    </LinearLayout>
                 </LinearLayout>
-            </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
+            </com.google.android.material.card.MaterialCardView>
 
-        <!-- Phần chọn Bàn trống (Spinner) -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Chọn bàn trống phù hợp"
-            android:textStyle="bold"
-            android:layout_marginBottom="8dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Chọn bàn trống"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp"/>
 
-        <Spinner
-            android:id="@+id/spTables"
-            android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:background="@android:drawable/editbox_background"
-            android:layout_marginBottom="16dp"/>
+            <Spinner
+                android:id="@+id/spTables"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@android:drawable/editbox_background"
+                android:layout_marginBottom="16dp"/>
 
-        <!-- Các ô nhập liệu Material Design -->
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Họ và Tên người đặt"
-            android:layout_marginBottom="12dp">
-            <com.google.android.material.textfield.TextInputEditText
+            <EditText
                 android:id="@+id/edtBookingName"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-        </com.google.android.material.textfield.TextInputLayout>
+                android:layout_height="wrap_content"
+                android:hint="Họ và Tên"
+                android:layout_marginBottom="12dp"/>
 
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Số điện thoại liên hệ"
-            android:layout_marginBottom="12dp">
-            <com.google.android.material.textfield.TextInputEditText
+            <EditText
                 android:id="@+id/edtBookingPhone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="phone" />
-        </com.google.android.material.textfield.TextInputLayout>
+                android:hint="Số điện thoại"
+                android:inputType="phone"
+                android:layout_marginBottom="12dp"/>
 
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Ghi chú thêm (Số lượng người, yêu cầu đặc biệt...)"
-            android:layout_marginBottom="24dp">
-            <com.google.android.material.textfield.TextInputEditText
+            <EditText
                 android:id="@+id/edtBookingNote"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:hint="Ghi chú (nếu có)"
+                android:lines="3"
                 android:gravity="top"
-                android:lines="3" />
-        </com.google.android.material.textfield.TextInputLayout>
+                android:layout_marginBottom="20dp"/>
 
-        <Button
-            android:id="@+id/btnBookNow"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:text="ĐẶT BÀN NGAY"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:backgroundTint="#2196F3"
-            app:cornerRadius="8dp"/>
+            <Button
+                android:id="@+id/btnBookNow"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:text="ĐẶT BÀN NGAY"
+                android:backgroundTint="#2196F3"/>
 
-    </LinearLayout>
-</ScrollView>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
